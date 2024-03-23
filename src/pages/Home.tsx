@@ -2,6 +2,7 @@ import React from 'react'
 import GlobalLayout from '../templates/GlobalLayout'
 import RocketAnimate from '../components/lottie/RocketAnimate'
 import UserAnimate from '../components/lottie/UserAnimate'
+import PriceComponent from '../components/PriceComponent'
 
 const Home = () => {
   return (
@@ -23,12 +24,12 @@ const Home = () => {
 
 
         <div className='bg-blue-500 min-h-52 mb-2 flex items-center justify-center'>
-        <p className="text-white text-center">Aproveite nossos planos e melhore sua comunicação!</p>
-      </div>
-
-      <div className='bg-red-400 min-h-52 flex items-center justify-center'>
-        <p className="text-white text-center">Adquira agora e descubra os benefícios para sua saúde auditiva!</p>
-      </div>
+          <p className="text-white text-center">Aproveite nossos planos e melhore sua comunicação!</p>
+        </div>
+        <PriceComponent />
+        <div className='bg-red-400 min-h-52 flex items-center justify-center'>
+          <p className="text-white text-center">Adquira agora e descubra os benefícios para sua saúde auditiva!</p>
+        </div>
       </div>
     </GlobalLayout>
   )

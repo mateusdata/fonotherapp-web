@@ -1,10 +1,11 @@
 import React from 'react'
+import GlobalLayout from '../templates/GlobalLayout'
 
 const HowItWorks = () => {
   return (
-    <div>
+    <GlobalLayout>
       como funciona
-    </div>
+    </GlobalLayout>
   )
 }
 

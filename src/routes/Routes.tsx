@@ -6,6 +6,7 @@ import Home from "../pages/Home";
 import Login from "../pages/Login";
 import HowItWorks from "../pages/HowItWorks";
 import Price from "../pages/Price";
+import Checkout from "../pages/Checkout";
 
 
 const AllRoutes = () => {
@@ -29,6 +30,7 @@ const AllRoutes = () => {
                     <Route path="/login" element={<Login />} />
                     <Route path="/como-funciona" element={<HowItWorks />} />
                     <Route path="/precos" element={<Price />} />
+                    <Route path="/checkout" element={<Checkout/>} />
                 </Routes>
             </AuthProvider>
         </BrowserRouter>

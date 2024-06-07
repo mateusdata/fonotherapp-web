@@ -1,5 +1,6 @@
 
 import  gif from "./cara_de_assustada.gif"
+import openApp from "./components/openApp"
 export default function App() {
   return (
 
@@ -380,8 +381,8 @@ export default function App() {
                     </li>
                   </ul>
 
-                  <a className="mt-5 py-3 px-4 w-full inline-flex justify-center items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent bg-cyan-500 text-white hover:bg-violet-700 disabled:opacity-50 disabled:pointer-events-none"
-                    href="https://github.com/htmlstreamofficial/preline/tree/main/examples/html">
+                  <a onClick={openApp} className="mt-5 py-3 px-4 w-full inline-flex justify-center items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent bg-cyan-500 text-white hover:bg-violet-700 disabled:opacity-50 disabled:pointer-events-none"
+                    href="fonotherapp://">
                     Iniciar
                   </a>
                 </div>

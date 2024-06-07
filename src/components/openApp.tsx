@@ -1,6 +1,6 @@
 import React from 'react';
 
-const openApp = () => {
+export const openApp = () => {
     const openApp = () => {
         window.location.href = 'fonotherapp:';
     };

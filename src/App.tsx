@@ -381,7 +381,7 @@ export default function App() {
                     </li>
                   </ul>
 
-                  <a onClick={openApp} className="mt-5 py-3 px-4 w-full inline-flex justify-center items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent bg-cyan-500 text-white hover:bg-violet-700 disabled:opacity-50 disabled:pointer-events-none"
+                  <a onClick={openApp} className="mt-5 py-3 px-5 w-full inline-flex justify-center items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent bg-cyan-500 text-white hover:bg-violet-700 disabled:opacity-50 disabled:pointer-events-none"
                     href="fonotherapp://">
                     Iniciar
                   </a>

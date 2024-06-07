@@ -1,6 +1,6 @@
 import React, { useCallback, useEffect, useState } from 'react'
-import axiosInstance from '../axiosInstance/axiosInstance';
 import { useNavigate } from 'react-router-dom';
+import api from '../axiosInstance/axiosInstance';
 
 
 
@@ -9,7 +9,7 @@ const PriceComponent = () => {
   const navigate = useNavigate();
 
   const listPlans = useCallback(() => {
-    axiosInstance.get('list-plans').then((response: any) => {
+    api.get('list-plans').then((response: any) => {
       setPlans(response.data);
     })
   }, []);

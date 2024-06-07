@@ -8,13 +8,13 @@ import {
 import { Navigate, useLocation } from "react-router-dom";
 
 import GlobalLayout from '../templates/GlobalLayout'
-import axiosInstance from '../axiosInstance/axiosInstance';
+import api from '../axiosInstance/axiosInstance';
 
 let stripePromise: any = null;
 let clientSecret: string;
 
 const fetchPublisableKey = async () => {
-    const response = await axiosInstance.get('/config');
+    const response = await api.get('/config');
 
     stripePromise = loadStripe(response.data.publishable_key);
 }
@@ -34,7 +34,7 @@ const Return = () => {
         const urlParams = new URLSearchParams(queryString);
         const sessionId = urlParams.get('session_id');
 
-        axiosInstance.get(`/session-status?session_id=${sessionId}`).then((response: any) => {
+        api.get(`/session-status?session_id=${sessionId}`).then((response: any) => {
             setStatus(response.data.status);
             setCustomerEmail(response.data.customer_email);
         });
@@ -70,7 +70,7 @@ const Checkout = () => {
 
     
     const createCheckoutsession = useCallback(async (): Promise<string> => {
-        const response = await axiosInstance.post('/create-checkout-session', { email, priceId });
+        const response = await api.post('/create-checkout-session', { email, priceId });
     
         return response.data?.client_secret;
     }, []);

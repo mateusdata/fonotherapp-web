@@ -26,7 +26,7 @@ const AllRoutes = () => {
         <BrowserRouter>
             <AuthProvider>
                 <Routes>
-                    <Route path="/" element={<Private> <Home /> </Private>} />
+                    <Route path="/" element={<> <Home /> </>} />
                     <Route path="/login" element={<Login />} />
                     <Route path="/como-funciona" element={<HowItWorks />} />
                     <Route path="/precos" element={<Price />} />

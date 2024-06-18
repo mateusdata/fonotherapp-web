@@ -1,18 +1,34 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import 'animate.css';
 
 export default function HeaderPublic() {
 
+    useEffect(() => {
+        const handleClickOutside = (event:any) => {
+            if (!event.target.closest('header')) {
+                setOpenMenu(false);
+            }
+        };
+        document.addEventListener('mousedown', handleClickOutside);
+        return () => {
+            document.removeEventListener('mousedown', handleClickOutside);
+        };
+    }, []);
+
+    const handleToggleMenu = (event:any) => {
+        event.stopPropagation();
+        setOpenMenu(!openMenu);
+    };
+
     const [openMenu, setOpenMenu] = useState(false)
     const links = [
-        { name: 'Inicil', url: '/link1' },
         { name: 'Planos', url: '/link2' },
         { name: 'Sobre', url: '/link3' },
         { name: 'Contato', url: '/link3' },
 
     ];
     return (
-        <header className="flex  bg-cyan-500 flex-wrap md:justify-start md:flex-nowrap z-50 w-full text-sm py-3 md:py-0">
+        <header  className="flex  bg-cyan-500 flex-wrap md:justify-start md:flex-nowrap z-50 w-full text-sm py-3 md:py-0">
             <nav className="max-w-[85rem] w-full mx-auto px-4 md:px-6 lg:px-8" aria-label="Global">
                 <div className="relative md:flex md:items-center md:justify-between">
                     <div className="flex items-center justify-between">
@@ -37,8 +53,8 @@ export default function HeaderPublic() {
 
 
                         <div className="md:hidden">
-                            <button onClick={()=>setOpenMenu(!openMenu)} type="button"
-                                className="hs-collapse-toggle size-9 flex justify-center items-center text-sm font-semibold rounded-lg border border-gray-200 text-gray-800 hover:bg-gray-100 disabled:opacity-50 disabled:pointer-events-none dark:text-white dark:border-neutral-800 dark:hover:bg-neutral-700"
+                            <button onClick={handleToggleMenu} type="button"
+                                className="hs-collapse-toggle bg-cyan-100 size-9 flex justify-center items-center text-sm font-semibold rounded-lg border border-gray-200 text-gray-800 hover:bg-gray-100 disabled:opacity-50 disabled:pointer-events-none dark:text-white dark:border-neutral-800 dark:hover:bg-neutral-700"
                                 data-hs-collapse="#navbar-collapse-with-animation" aria-controls="navbar-collapse-with-animation"
                                 aria-label="Toggle navigation">
                                 <svg className="hs-collapse-open:hidden flex-shrink-0 size-4" xmlns="http://www.w3.org/2000/svg"
@@ -58,12 +74,12 @@ export default function HeaderPublic() {
                         </div>
                     </div>
 
-                    <div id="navbar-collapse-with-animation" onFocus={()=>setOpenMenu(false)}
-                        className={`hs-collapse animate__animated  animate__slideInDown  ${openMenu && "hidden sm:flex animate__animated animate__fadeOutUp"} overflow-hidden transition-all duration-300 basis-full grow md:block`}>
+                    <div id="navbar-collapse-with-animation"
+                        className={`hs-collapse   overflow-hidden transition-all duration-300 basis-full grow md:block`}>
                         <div
                             className="overflow-hidden overflow-y-auto max-h-[75vh] [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-track]:bg-gray-100 [&::-webkit-scrollbar-thumb]:bg-gray-300 dark:[&::-webkit-scrollbar-track]:bg-neutral-700 dark:[&::-webkit-scrollbar-thumb]:bg-neutral-500">
                             <div
-                                className="flex flex-col gap-x-0 mt-5 divide-y divide-dashed divide-gray-200 md:flex-row md:items-center md:justify-end md:gap-x-7 md:mt-0 md:ps-7 md:divide-y-0 md:divide-solid dark:divide-neutral-700">
+                                className={` ${openMenu ? "flex" : "hidden"} md:flex flex-col gap-x-0 mt-5 divide-y divide-dashed divide-gray-200 md:flex-row md:items-center md:justify-end md:gap-x-7 md:mt-0 md:ps-7 md:divide-y-0 md:divide-solid dark:divide-neutral-700`}>
                                 {true && links?.map((link) => (
 
                                     <a className="font-medium text-gray-50 hover:text-gray-500 py-3 md:py-6 dark:text-neutral-400 dark:hover:text-neutral-500"
@@ -75,7 +91,7 @@ export default function HeaderPublic() {
 
                                 <div className="pt-3 md:pt-0">
                                     <button className="py-2.5 px-3 inline-flex items-center gap-x-2 text-sm font-medium rounded-lg border border-transparent bg-blue-600 text-white hover:bg-violet-700 disabled:opacity-50 disabled:pointer-events-none"
-                                        >
+                                    >
                                         Solicite demonstração
                                     </button>
                                 </div>

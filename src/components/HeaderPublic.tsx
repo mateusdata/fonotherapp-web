@@ -1,10 +1,14 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import 'animate.css';
+import { Link } from "react-router-dom";
+import { ContextAuth } from "../context/AuthProvider";
+import DropDownUser from "./DropDownUser";
 
 export default function HeaderPublic() {
+    const {user} = useContext(ContextAuth)
 
     useEffect(() => {
-        const handleClickOutside = (event:any) => {
+        const handleClickOutside = (event: any) => {
             if (!event.target.closest('header')) {
                 setOpenMenu(false);
             }
@@ -15,20 +19,22 @@ export default function HeaderPublic() {
         };
     }, []);
 
-    const handleToggleMenu = (event:any) => {
+    const handleToggleMenu = (event: any) => {
         event.stopPropagation();
         setOpenMenu(!openMenu);
     };
 
     const [openMenu, setOpenMenu] = useState(false)
     const links = [
-        { name: 'Planos', url: '/link2' },
-        { name: 'Sobre', url: '/link3' },
-        { name: 'Contato', url: '/link3' },
-
+        { name: ' Início', url: '/' },
+        { name: 'Como funciona', url: '/como-funciona' },
+        { name: ' Preços', url: '/precos' },
     ];
+
+    
+    
     return (
-        <header  className="flex  bg-cyan-500 flex-wrap md:justify-start md:flex-nowrap z-50 w-full text-sm py-3 md:py-0">
+        <header className="flex  bg-cyan-500 flex-wrap md:justify-start md:flex-nowrap z-50 w-full text-sm py-3 md:py-0">
             <nav className="max-w-[85rem] w-full mx-auto px-4 md:px-6 lg:px-8" aria-label="Global">
                 <div className="relative md:flex md:items-center md:justify-between">
                     <div className="flex items-center justify-between">
@@ -80,7 +86,7 @@ export default function HeaderPublic() {
                             className="overflow-hidden overflow-y-auto max-h-[75vh] [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-track]:bg-gray-100 [&::-webkit-scrollbar-thumb]:bg-gray-300 dark:[&::-webkit-scrollbar-track]:bg-neutral-700 dark:[&::-webkit-scrollbar-thumb]:bg-neutral-500">
                             <div
                                 className={` ${openMenu ? "flex" : "hidden"} md:flex flex-col gap-x-0 mt-5 divide-y divide-dashed divide-gray-200 md:flex-row md:items-center md:justify-end md:gap-x-7 md:mt-0 md:ps-7 md:divide-y-0 md:divide-solid dark:divide-neutral-700`}>
-                                {true && links?.map((link) => (
+                                { !user?.nick_name && links?.map((link) => (
 
                                     <a className="font-medium text-gray-50 hover:text-gray-500 py-3 md:py-6 dark:text-neutral-400 dark:hover:text-neutral-500"
                                         href={link.url} aria-current="page">
@@ -90,10 +96,14 @@ export default function HeaderPublic() {
                                 }
 
                                 <div className="pt-3 md:pt-0">
-                                    <button className="py-2.5 px-3 inline-flex items-center gap-x-2 text-sm font-medium rounded-lg border border-transparent bg-blue-600 text-white hover:bg-violet-700 disabled:opacity-50 disabled:pointer-events-none"
+                                   {!user?.nick_name ? <Link to={"/login"} className="py-2.5 px-3 inline-flex items-center gap-x-2 text-sm font-medium rounded-lg border border-transparent bg-blue-600 text-white hover:bg-violet-700 disabled:opacity-50 disabled:pointer-events-none"
                                     >
-                                        Solicite demonstração
-                                    </button>
+                                        Entrar
+                                    </Link>:
+                                    <div className="p-2.5">
+                                        <DropDownUser/>
+                                    </div>
+                                    }
                                 </div>
                             </div>
                         </div>

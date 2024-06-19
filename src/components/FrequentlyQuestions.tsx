@@ -23,7 +23,7 @@ export default function FrequentlyQuestions() {
                             <button
                                 className="hs-accordion-toggle group pb-3 inline-flex items-center justify-between gap-x-3 w-full md:text-lg font-semibold text-start text-gray-800 rounded-lg transition hover:text-gray-500 dark:text-neutral-200 dark:hover:text-neutral-400"
                                 aria-controls="hs-basic-with-title-and-arrow-stretched-collapse-one">
-                                Can I cancel at anytime?
+                                Gestão de Pacientes
                                 <svg
                                     className="hs-accordion-active:hidden block flex-shrink-0 size-5 text-gray-600 group-hover:text-gray-500 dark:text-neutral-400"
                                     xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
@@ -41,8 +41,7 @@ export default function FrequentlyQuestions() {
                                 className="hs-accordion-content w-full overflow-hidden transition-[height] duration-300"
                                 aria-labelledby="hs-basic-with-title-and-arrow-stretched-heading-one">
                                 <p className="text-gray-600 dark:text-neutral-400">
-                                    Yes, you can cancel anytime no questions are asked while you cancel but we would highly appreciate if
-                                    you will give us some feedback.
+                                Gerencie facilmente os dados de seus pacientes com nosso app intuitivo e seguro.
                                 </p>
                             </div>
                         </div>
@@ -51,7 +50,7 @@ export default function FrequentlyQuestions() {
                             <button
                                 className="hs-accordion-toggle group pb-3 inline-flex items-center justify-between gap-x-3 w-full md:text-lg font-semibold text-start text-gray-800 rounded-lg transition hover:text-gray-500 dark:text-neutral-200 dark:hover:text-neutral-400"
                                 aria-controls="hs-basic-with-title-and-arrow-stretched-collapse-two">
-                                My team has credits. How do we use them?
+                               Adição de Exercícios
                                 <svg
                                     className="hs-accordion-active:hidden block flex-shrink-0 size-5 text-gray-600 group-hover:text-gray-500 dark:text-neutral-400"
                                     xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
@@ -69,8 +68,7 @@ export default function FrequentlyQuestions() {
                                 className="hs-accordion-content hidden w-full overflow-hidden transition-[height] duration-300"
                                 aria-labelledby="hs-basic-with-title-and-arrow-stretched-heading-two">
                                 <p className="text-gray-600 dark:text-neutral-400">
-                                    Once your team signs up for a subscription plan. This is where we sit down, grab a cup of coffee and
-                                    dial in the details.
+                                Adicione e personalize exercícios para cada paciente com apenas alguns cliques
                                 </p>
                             </div>
                         </div>
@@ -79,7 +77,7 @@ export default function FrequentlyQuestions() {
                             <button
                                 className="hs-accordion-toggle group pb-3 inline-flex items-center justify-between gap-x-3 w-full md:text-lg font-semibold text-start text-gray-800 rounded-lg transition hover:text-gray-500 dark:text-neutral-200 dark:hover:text-neutral-400"
                                 aria-controls="hs-basic-with-title-and-arrow-stretched-collapse-three">
-                                How does Preline's pricing work?
+                             Geração de Relatórios
                                 <svg
                                     className="hs-accordion-active:hidden block flex-shrink-0 size-5 text-gray-600 group-hover:text-gray-500 dark:text-neutral-400"
                                     xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
@@ -97,7 +95,7 @@ export default function FrequentlyQuestions() {
                                 className="hs-accordion-content hidden w-full overflow-hidden transition-[height] duration-300"
                                 aria-labelledby="hs-basic-with-title-and-arrow-stretched-heading-three">
                                 <p className="text-gray-600 dark:text-neutral-400">
-                                    Our subscriptions are tiered. Understanding the task at hand and ironing out the wrinkles is key.
+                                Crie relatórios detalhados sobre o progresso dos pacientes de forma rápida e eficiente
                                 </p>
                             </div>
                         </div>
@@ -106,7 +104,7 @@ export default function FrequentlyQuestions() {
                             <button
                                 className="hs-accordion-toggle group pb-3 inline-flex items-center justify-between gap-x-3 w-full md:text-lg font-semibold text-start text-gray-800 rounded-lg transition hover:text-gray-500 dark:text-neutral-200 dark:hover:text-neutral-400"
                                 aria-controls="hs-basic-with-title-and-arrow-stretched-collapse-four">
-                                How secure is Preline?
+                               Monitoramento
                                 <svg
                                     className="hs-accordion-active:hidden block flex-shrink-0 size-5 text-gray-600 group-hover:text-gray-500 dark:text-neutral-400"
                                     xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
@@ -124,8 +122,7 @@ export default function FrequentlyQuestions() {
                                 className="hs-accordion-content hidden w-full overflow-hidden transition-[height] duration-300"
                                 aria-labelledby="hs-basic-with-title-and-arrow-stretched-heading-four">
                                 <p className="text-gray-600 dark:text-neutral-400">
-                                    Protecting the data you trust to Preline is our first priority. This part is really crucial in keeping
-                                    the project in line to completion.
+                                Acompanhe o progresso dos exercícios dos pacientes em tempo real diretamente pelo app
                                 </p>
                             </div>
                         </div>
@@ -134,7 +131,7 @@ export default function FrequentlyQuestions() {
                             <button
                                 className="hs-accordion-toggle group pb-3 inline-flex items-center justify-between gap-x-3 w-full md:text-lg font-semibold text-start text-gray-800 rounded-lg transition hover:text-gray-500 dark:text-neutral-200 dark:hover:text-neutral-400"
                                 aria-controls="hs-basic-with-title-and-arrow-stretched-collapse-five">
-                                How do I get access to a theme I purchased?
+                               Biblioteca de Recursos
                                 <svg
                                     className="hs-accordion-active:hidden block flex-shrink-0 size-5 text-gray-600 group-hover:text-gray-500 dark:text-neutral-400"
                                     xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
@@ -152,10 +149,7 @@ export default function FrequentlyQuestions() {
                                 className="hs-accordion-content hidden w-full overflow-hidden transition-[height] duration-300"
                                 aria-labelledby="hs-basic-with-title-and-arrow-stretched-heading-five">
                                 <p className="text-gray-600 dark:text-neutral-400">
-                                    If you lose the link for a theme you purchased, don't panic! We've got you covered. You can login to
-                                    your account, tap your avatar in the upper right corner, and tap Purchases. If you didn't create a
-                                    login or can't remember the information, you can use our handy Redownload page, just remember to use
-                                    the same email you originally made your purchases with.
+                                Utilize uma vasta biblioteca de recursos e materiais para apoiar o tratamento dos pacientes.
                                 </p>
                             </div>
                         </div>

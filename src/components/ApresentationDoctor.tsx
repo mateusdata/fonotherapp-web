@@ -15,7 +15,7 @@ export default function ApresentationDoctor() {
         </div>
 
         <div className="lg:grid lg:grid-cols-6 lg:gap-8 lg:items-center">
-          <div className="hidden lg:block lg:col-span-2">
+          <div className="lg:col-span-2">
             <img className="rounded-xl"
               src={gif}
               alt="Imagem" />
@@ -25,8 +25,8 @@ export default function ApresentationDoctor() {
 
             <blockquote>
 
-              <p className="text-xl font-medium text-gray-800 lg:text-2xl lg:leading-normal dark:text-neutral-200">
-                A fonoaudiologia na palma da sua mão
+              <p className="text-xl hidden md:flex px-12 text-left font-medium text-gray-800 lg:text-2xl lg:leading-normal dark:text-neutral-200">
+                Avance na Terapia: Vídeos Sob Medida para o Progresso do Paciente
               </p>
 
               <div className="mt-6">
@@ -47,44 +47,8 @@ export default function ApresentationDoctor() {
                 </div>
               </div>
 
-              <div className="mt-6 sm:hidden">
-                <div className="flex items-center">
-                  <div className="lg:hidden flex-shrink-0">
-                    <img className="size-12 rounded-full"
-                      src={ImageAmanda}
-                      alt="Imagem" />
-                  </div>
-                  <div className="ms-4 lg:ms-0">
-                    <p className="font-medium text-gray-800 dark:text-neutral-200">
-                    Jéssica
-                    </p>
-                    <p className="text-sm text-gray-600 dark:text-neutral-400">
-                      Fonoaudiologa
-                    </p>
-                  </div>
-                </div>
-              </div>
-
-              <div className="mt-6 sm:hidden">
-                <div className="flex items-center">
-                  <div className="lg:hidden flex-shrink-0">
-                    <img className="size-12 rounded-full"
-                      src={ImageJesica}
-                      alt="Imagem" />
-                  </div>
-                  <div className="ms-4 lg:ms-0">
-                    <p className="font-medium text-gray-800 dark:text-neutral-200">
-                    Jéssica
-                    </p>
-                    <p className="text-sm text-gray-600 dark:text-neutral-400">
-                      Fonoaudiologa
-                    </p>
-                  </div>
-                </div>
-              </div>
 
 
-              
             </blockquote>
 
           </div>

@@ -1,90 +1,70 @@
-
 import React, { useCallback, useEffect, useState } from 'react';
-import { loadStripe } from '@stripe/stripe-js';
+import { loadStripe, Stripe } from '@stripe/stripe-js';
 import {
     EmbeddedCheckoutProvider,
     EmbeddedCheckout
 } from '@stripe/react-stripe-js';
-import { Navigate, useLocation } from "react-router-dom";
-
-import GlobalLayout from '../templates/GlobalLayout'
+import { useLocation, useNavigate } from "react-router-dom";
 import api from '../axiosInstance/axiosInstance';
-
-let stripePromise: any = null;
-let clientSecret: string;
-
-const fetchPublisableKey = async () => {
-    const response = await api.get('/config');
-
-    stripePromise = loadStripe(response.data.publishable_key);
-}
-
-
-fetchPublisableKey();
-
-
-
-
-const Return = () => {
-    const [status, setStatus] = useState(null);
-    const [customerEmail, setCustomerEmail] = useState('');
-
-    useEffect(() => {
-        const queryString = window.location.search;
-        const urlParams = new URLSearchParams(queryString);
-        const sessionId = urlParams.get('session_id');
-
-        api.get(`/session-status?session_id=${sessionId}`).then((response: any) => {
-            setStatus(response.data.status);
-            setCustomerEmail(response.data.customer_email);
-        });
-
-    }, []);
-
-    if (status === 'open') {
-        return (
-            <Navigate to="/checkout" />
-        )
-    }
-
-    if (status === 'complete') {
-        return (
-            <section id="success">
-                <p>
-                    We appreciate your business! A confirmation email will be sent to {customerEmail}.
-
-                    If you have any questions, please email <a href="mailto:orders@example.com">orders@example.com</a>.
-                </p>
-            </section>
-        )
-    }
-
-    return null;
-}
-
-
+import PublicLayout from '../templates/PublicLayout';
 
 const Checkout = () => {
     const [clientSecret, setClientSecret] = useState<string>("");
+    const [stripePromise, setStripePromise] = useState<any>(undefined);
     const { state: { email, priceId } } = useLocation();
+    const navigate = useNavigate();
 
-    
-    const createCheckoutsession = useCallback(async (): Promise<string> => {
-        const response = await api.post('/create-checkout-session', { email, priceId });
-    
-        return response.data?.client_secret;
+    useEffect(() => {
+        const fetchPublishableKey = async () => {
+            const response = await api.get('/config');
+            return response.data.publishable_key;
+        };
+
+        const initializeStripe = async () => {
+            const publishableKey = await fetchPublishableKey();
+            const stripe = await loadStripe(publishableKey);
+            setStripePromise(() => Promise.resolve(stripe));
+        };
+
+        initializeStripe();
     }, []);
 
+    const createCheckoutsession = useCallback(async (): Promise<string> => {
+        try {
+            const response = await api.post('/create-checkout-session', { email, priceId });
+            if (!response.data?.client_secret) {
+                navigate("/painel");
+                return '';
+            }
+            setClientSecret(response.data.client_secret);
+            return response.data.client_secret;
+        } catch (error) {
+            console.error('Erro ao criar a sessão de checkout:', error);
+            alert('Ocorreu um erro ao criar a sessão de checkout. Por favor, tente novamente.');
+            return '';
+        }
+    }, [email, priceId, navigate]);
+
+    useEffect(() => {
+        if (clientSecret) {
+          //  alert(clientSecret);
+        }
+    }, [clientSecret]);
+
+    if (!stripePromise) {
+        return null; // Ou algum indicador de carregamento enquanto o Stripe está sendo inicializado
+    }
+
     return (
-        <GlobalLayout>
+        <PublicLayout>
             <EmbeddedCheckoutProvider
                 stripe={stripePromise}
                 options={{ fetchClientSecret: createCheckoutsession }}
             >
                 <EmbeddedCheckout />
             </EmbeddedCheckoutProvider>
-        </GlobalLayout>
-    )
+        </PublicLayout>
+    );
 };
 
 export default Checkout;

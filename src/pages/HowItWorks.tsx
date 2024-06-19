@@ -1,11 +1,11 @@
 import React from 'react'
-import GlobalLayout from '../templates/GlobalLayout'
+import PublicLayout from '../templates/PublicLayout'
 
 const HowItWorks = () => {
   return (
-    <GlobalLayout>
+    <PublicLayout>
       como funciona
-    </GlobalLayout>
+    </PublicLayout>
   )
 }
 

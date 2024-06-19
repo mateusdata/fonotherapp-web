@@ -8,13 +8,17 @@ interface FormatContext {
     setLoading: Dispatch<SetStateAction<boolean>>
     currentPage: number,
     setCurrentPage: Dispatch<SetStateAction<number>>
+    logout:any
 }
 
 export interface FormatUser {
-    name: string,
-    email: string,
-    password?: string
-}
+    doc_id: number;
+    email: string;
+    nick_name: string;
+    token: string;
+    usu_id: number;
+  }
+  
 export const ContextAuth = createContext<FormatContext>({} as FormatContext)
 
 const AuthProvider: React.FC<PropsWithChildren> = ({ children }) => {
@@ -25,16 +29,21 @@ const AuthProvider: React.FC<PropsWithChildren> = ({ children }) => {
 
     useEffect(() => {
         try {
-            const data: any = localStorage.getItem("user")
+            const data: any = localStorage.getItem("usuario")
             setUser(JSON.parse(data))
+            setLoading(false);           
+        } catch (error) {                      
             setLoading(false);
-        } catch (error) {
-            alert("erro")
         }
     }, [setUser])
 
+    async function logout() {
+        localStorage.removeItem("usuario");
+        setUser(null)
+    }
+
     return (
-        <ContextAuth.Provider value={{ user, setUser, authenticated: !!user, loading, setLoading, currentPage, setCurrentPage }}>
+        <ContextAuth.Provider value={{ user, setUser, authenticated: !!user, loading, setLoading, currentPage, setCurrentPage, logout }}>
             {children}
         </ContextAuth.Provider>
     )

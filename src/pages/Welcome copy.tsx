@@ -4,12 +4,16 @@ import PlansGlobal from '../components/PlansGlobal'
 import ApresentationDoctor from '../components/ApresentationDoctor'
 import FrequentlyQuestions from '../components/FrequentlyQuestions'
 import Footer from '../components/Footer'
+import CardsInformationsPlan from '../components/CardsInformationsPlan'
+import ApresentationManagers from '../components/ApresentationManagers'
 
-export default function GlobalPage() {
+export default function Welcome() {
   return (
     <div className="overflow-hidden">
       <HeaderPublic />
       <PlansGlobal />
+      <CardsInformationsPlan/>
+      <ApresentationManagers/>
       <ApresentationDoctor />
       <FrequentlyQuestions />
       <Footer />

@@ -1,37 +1,37 @@
 import React from 'react'
-import GlobalLayout from '../templates/GlobalLayout'
-import RocketAnimate from '../components/lottie/RocketAnimate'
-import UserAnimate from '../components/lottie/UserAnimate'
-import PriceComponent from '../components/PriceComponent'
+import ApresentationDoctor from '../components/ApresentationDoctor'
+import CardsInformationsPlan from '../components/CardsInformationsPlan'
+import ApresentationManagers from '../components/ApresentationManagers'
+import { Link } from 'react-router-dom'
+import PublicLayout from '../templates/PublicLayout'
 
 const Home = () => {
   return (
-    <GlobalLayout>
-      <div className='relative overflow-hidden'>
-        <div className='bg-cyan-500 h-180 '>
-          <div className='bg-cyan-500 transform  skew-y-2'>
-            <div className='flex items-center justify-center py-10'>
-              <RocketAnimate />
-            </div>
+    <PublicLayout>
+      <div className="">
+        
+        <div className="max-w-[85rem] px-4 pt-10 sm:px-6 lg:px-8 lg:pt-14 mx-auto">
+
+          <div className="max-w-2xl mx-auto text-center mb-1 ">
+            <h2
+              className="text-3xl leading-tight font-bold md:text-4xl md:leading-tight lg:text-5xl lg:leading-tight bg-clip-text bg-gradient-to-r from-cyan-600 to-fuchsia-700 text-transparent">
+              O consultório é apenas o começo da jornada</h2>
+            <p className="mt-2 md:px-24 lg:text-lg text-gray-800 dark:text-neutral-200">
+              Automatize a fonoterapia e mantenha seus pacientes sempre motivados e engajados.
+
+            </p>
+            <Link  to={"/cadastro"} type="button" className="py-3 mt-2 px-4 inline-flex items-center gap-x-2 text-sm font-semibold rounded-full border border-transparent bg-green-500 text-white hover:bg-cyan-500 disabled:opacity-50 disabled:pointer-events-none">
+              Cadastre-se agora
+            </Link>
+
           </div>
-        </div>
 
-        <div className='bg-gray-5 h-80 transform skew-y-2 '>
-          <div className='flex items-center justify-center py-10'>
-            <UserAnimate />
-          </div>
-        </div>
-
-
-        <div className='bg-blue-500 min-h-52 mb-2 flex items-center justify-center'>
-          <p className="text-white text-center">Aproveite nossos planos e melhore sua comunicação!</p>
-        </div>
-        <PriceComponent />
-        <div className='bg-red-400 min-h-52 flex items-center justify-center'>
-          <p className="text-white text-center">Adquira agora e descubra os benefícios para sua saúde auditiva!</p>
         </div>
       </div>
-    </GlobalLayout>
+      <CardsInformationsPlan/>
+      <ApresentationManagers/>
+      <ApresentationDoctor/>
+    </PublicLayout>
   )
 }
 

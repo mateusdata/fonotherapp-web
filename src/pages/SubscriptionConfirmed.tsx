@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import { ContextAuth } from '../context/AuthProvider';
 import PublicLayout from '../templates/PublicLayout';
 import { api } from '../axiosInstance/axiosInstance';
-
+///Fonotherapp
 const SubscriptionConfirmed = () => {
     const { user } = useContext(ContextAuth);
     const isPlan = user?.nick_name ? true : false;

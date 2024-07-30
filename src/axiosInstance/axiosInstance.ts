@@ -2,7 +2,7 @@ import axios from "axios";
 
 const api = axios.create({
     //baseURL: 'https://api.fonotherapp.com.br',
-    baseURL:"https://1a9b-200-26-254-64.ngrok-free.app",
+    baseURL:"https://api.fonotherapp.com.br",
     timeout: 10000,
     headers:{
         "ngrok-skip-browser-warning": "69420",

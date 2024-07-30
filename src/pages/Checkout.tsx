@@ -29,6 +29,8 @@ const Checkout = () => {
         initializeStripe();
     }, []);
 
+
+  
     const createCheckoutsession = useCallback(async (): Promise<string> => {
         try {
             const response = await api.post('/create-checkout-session', { email, priceId });
@@ -61,10 +63,11 @@ const Checkout = () => {
                 <EmbeddedCheckoutProvider
                     stripe={stripePromise}
                     options={{ fetchClientSecret: createCheckoutsession }}
-                >
+                >                    
                     <EmbeddedCheckout />
                 </EmbeddedCheckoutProvider>
             </div>  
+            
         </PublicLayout>
     );
 };

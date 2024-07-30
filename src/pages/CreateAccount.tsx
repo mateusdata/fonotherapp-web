@@ -36,7 +36,7 @@ const CreateAccount: React.FC = () => {
     try {
       setLoading(true)
 
-      const response = await api.post("/create-user", data)
+      const response = await api.post("/user", data)
       console.log('Resposta da API:', response.data);
       localStorage.setItem('usuario', JSON.stringify(response.data));
       setUser(response?.data)

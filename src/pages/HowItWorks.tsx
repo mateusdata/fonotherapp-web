@@ -1,10 +1,13 @@
 import React from 'react'
 import PublicLayout from '../templates/PublicLayout'
 import { Link } from 'react-router-dom'
+import OpenWhatsApp from '../components/OpenWhatsApp'
 
 const HowItWorks = () => {
   return (
     <PublicLayout>
+      <OpenWhatsApp />
+
       <div className="">
         <div className="max-w-5xl px-4 xl:px-0 py-10 lg:pt-8 lg:pb-20 mx-auto">
           <div className="max-w-3xl mb-10 lg:mb-14">

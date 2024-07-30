@@ -7,9 +7,9 @@ import { ContextGlobal } from "../context/GlobalProvider";
 
 export default function HeaderPublic() {
     const { user, logout } = useContext(ContextAuth)
-    const { setActivePlan, activePlan } = useContext(ContextGlobal)
+    const { activePlan } = useContext(ContextGlobal)
 
-    
+
     useEffect(() => {
         const handleClickOutside = (event: any) => {
             if (!event.target.closest('header')) {
@@ -102,19 +102,19 @@ export default function HeaderPublic() {
                                 className={` ${openMenu ? "flex" : "hidden"} md:flex flex-col gap-x-0 mt-5 divide-y divide-blue-50 md:flex-row md:items-center md:justify-end md:gap-x-7 md:mt-0 md:ps-7 md:divide-y-0 md:divide-solid dark:divide-neutral-700`}>
                                 {!user?.nick_name && links?.map((link) => (
 
-                                    <a className="font-medium text-gray-50 hover:text-gray-500 py-3 md:py-6 dark:text-neutral-400 dark:hover:text-neutral-500"
-                                        href={link.url} aria-current="page">
+                                    <Link to={link.url} className="font-medium text-gray-50 hover:text-gray-500 py-3 md:py-6 dark:text-neutral-400 dark:hover:text-neutral-500"
+                                        aria-current="page">
                                         {link.name}
-                                    </a>
+                                    </Link>
                                 ))
                                 }
 
                                 {user?.nick_name && linksWithPlans?.map((link) => (
 
-                                    <a className="font-medium md:hidden text-md text-gray-50 hover:text-gray-500 py-3 md:py-6 dark:text-neutral-400 dark:hover:text-neutral-500"
-                                        href={link.url} aria-current="page">
+                                    <Link to={link.url} className="font-medium md:hidden text-md text-gray-50 hover:text-gray-500 py-3 md:py-6 dark:text-neutral-400 dark:hover:text-neutral-500"
+                                        aria-current="page">
                                         {link.name}
-                                    </a>
+                                    </Link>
                                 ))
                                 }
 
@@ -129,9 +129,9 @@ export default function HeaderPublic() {
                                             <div className="p-2.5 hidden md:block">
                                                 <DropDownUser />
                                             </div>
-                                        <button onClick={logout} className="font-medium md:hidden text-red-500 text-md hover:text-gray-500 py-0 md:py-6 dark:text-neutral-400 dark:hover:text-neutral-500">
-                                            Sair
-                                        </button>
+                                            <button onClick={logout} className="font-medium md:hidden text-red-500 text-md hover:text-gray-500 py-0 md:py-6 dark:text-neutral-400 dark:hover:text-neutral-500">
+                                                Sair
+                                            </button>
                                         </div>
                                     }
                                 </div>

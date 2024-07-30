@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import { Button } from 'antd';
-import { CheckCircleOutlined, DownloadOutlined } from '@ant-design/icons';
+import { CheckCircleOutlined } from '@ant-design/icons';
 import { useNavigate } from 'react-router-dom';
 import { ContextAuth } from '../context/AuthProvider';
 import PublicLayout from '../templates/PublicLayout';

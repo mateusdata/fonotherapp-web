@@ -13,6 +13,8 @@ import CreateAccount from "../pages/CreateAccount";
 import Dashboard from "../pages/Dashboard";
 import SubscriptionConfirmed from "../pages/SubscriptionConfirmed";
 import GlobalProvider from "../context/GlobalProvider";
+import PrivacyPolicy from "../pages/PrivacyPolicy";
+import TermsOfService from "../pages/TermsOfService";
 
 const AllRoutes = () => {
 
@@ -56,11 +58,16 @@ const AllRoutes = () => {
                         <Route path="/checkout" element={<Private><Checkout /></Private>} />
                         <Route path="/meuplano" element={<Private><SubscriptionConfirmed /></Private>} />
                         <Route path="/downloadapp" element={<DownloadAppRedirect />} />
-                          
+
+                        {/*Rotas termos e serviços do fonotherapp*/}
+
+                        <Route path="/politica-e-privacidade" element={<PrivacyPolicy />} />
+                        <Route path="/termos-e-servicos" element={<TermsOfService />} />
+
                     </Routes>
                 </AuthProvider>
             </GlobalProvider>
-            
+
         </BrowserRouter>
     );
 };

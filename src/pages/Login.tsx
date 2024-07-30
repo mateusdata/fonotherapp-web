@@ -10,6 +10,7 @@ import { ClipLoader } from 'react-spinners';
 import { ContextGlobal } from '../context/GlobalProvider';
 import { Spin } from 'antd';
 import { LoadingOutlined } from '@ant-design/icons';
+import { useUserStore } from '../context/Zcontext';
 
 const schema = z.object({
   email: z.string().email('Por favor, insira um email válido').min(5),
@@ -22,6 +23,8 @@ type LoginFormValues = {
 
 const Login: React.FC = () => {
   const navigate = useNavigate()
+  const { users, setUsers } = useUserStore();
+
   const [loading, setLoading] = useState(false);
 
   const { register, handleSubmit, formState: { errors }, setError } = useForm<LoginFormValues>({
@@ -60,6 +63,8 @@ const Login: React.FC = () => {
 
   return (
     <html className="h-full gradient-background">
+              {JSON.stringify(users)}
+
       <body className="dark:bg-slate-900 gradient-background flex h-full items-center py-16 min-h-screen">
         <main className="w-full max-w-md mx-auto p-6">
           <div className="mt-7 bg-white border border-gray-200 rounded-xl shadow-sm dark:bg-gray-800 dark:border-gray-700">

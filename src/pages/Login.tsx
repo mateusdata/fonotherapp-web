@@ -1,6 +1,6 @@
 import React, { useContext, useState } from 'react';
 import './style.css';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useForm, SubmitHandler } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
@@ -24,6 +24,7 @@ type LoginFormValues = {
 const Login: React.FC = () => {
   const navigate = useNavigate()
   const { users, setUsers } = useUserStore();
+  const { priceId } = useLocation()?.state || {};
 
   const [loading, setLoading] = useState(false);
 
@@ -53,7 +54,7 @@ const Login: React.FC = () => {
       setUser({ ...response.data, ...infoUser.data })
       setActivePlan(infoUser?.data?.has_plan)
       setLoading(false)
-      navigate("/painel")
+      navigate("/painel", {state: {priceId}} )
     } catch (error) {
       console.error('Erro ao fazer login:', error);
       setLoading(false)
@@ -62,8 +63,7 @@ const Login: React.FC = () => {
   };
 
   return (
-    <html className="h-full gradient-background">
-              {JSON.stringify(users)}
+    <html className="h-full gradient-background">      
 
       <body className="dark:bg-slate-900 gradient-background flex h-full items-center py-16 min-h-screen">
         <main className="w-full max-w-md mx-auto p-6">

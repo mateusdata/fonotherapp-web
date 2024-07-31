@@ -1,17 +1,20 @@
-import React, { useCallback, useEffect, useState } from 'react';
+import React, { useCallback, useContext, useEffect, useState } from 'react';
 import { loadStripe, Stripe } from '@stripe/stripe-js';
 import {
     EmbeddedCheckoutProvider,
     EmbeddedCheckout
 } from '@stripe/react-stripe-js';
 import { useLocation, useNavigate } from "react-router-dom";
-import {api} from '../axiosInstance/axiosInstance';
+import { api } from '../axiosInstance/axiosInstance';
 import PublicLayout from '../templates/PublicLayout';
+import { ContextAuth } from '../context/AuthProvider';
 
 const Checkout = () => {
     const [clientSecret, setClientSecret] = useState<string>("");
     const [stripePromise, setStripePromise] = useState<any>(undefined);
-    const { state: { email, priceId } } = useLocation();
+    const { state: { priceId } } = useLocation();
+    const { user } = useContext(ContextAuth)
+    const { email }:any = user;
     const navigate = useNavigate();
 
     useEffect(() => {
@@ -30,7 +33,7 @@ const Checkout = () => {
     }, []);
 
 
-  
+
     const createCheckoutsession = useCallback(async (): Promise<string> => {
         try {
             const response = await api.post('/create-checkout-session', { email, priceId });
@@ -63,11 +66,11 @@ const Checkout = () => {
                 <EmbeddedCheckoutProvider
                     stripe={stripePromise}
                     options={{ fetchClientSecret: createCheckoutsession }}
-                >                    
+                >
                     <EmbeddedCheckout />
                 </EmbeddedCheckoutProvider>
-            </div>  
-            
+            </div>
+
         </PublicLayout>
     );
 };

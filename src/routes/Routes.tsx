@@ -5,7 +5,6 @@ import AuthProvider, { ContextAuth } from "../context/AuthProvider";
 import Home from "../pages/Home";
 import Login from "../pages/Login";
 import HowItWorks from "../pages/HowItWorks";
-import Price from "../pages/Price";
 import Checkout from "../pages/Checkout";
 import NotFound from "../pages/NotFound";
 import Welcome from "../pages/Welcome";
@@ -49,7 +48,7 @@ const AllRoutes = () => {
                         <Route path="/prices" element={<Welcome />} />
                         <Route path="/login" element={<Login />} />
                         <Route path="/como-funciona" element={<HowItWorks />} />
-                        <Route path="/precos" element={<><Price /></>} />
+                        <Route path="/precos" element={<><Dashboard /></>} />
                         <Route path="*" element={<NotFound />} />
                         <Route path="/cadastro" element={<CreateAccount />} />
 

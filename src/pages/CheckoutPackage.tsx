@@ -63,6 +63,7 @@ const Return = () => {
 const Checkout = () => {
     const [clientSecret, setClientSecret] = useState<string>("");
     const { state: { email, priceId } } = useLocation();
+    //const { state: { email, priceId } } = useLocation()?.state || {};
 
 
     const createCheckoutsession = useCallback(async (): Promise<string> => {

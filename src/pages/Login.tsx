@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import './style.css';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useForm, SubmitHandler } from 'react-hook-form';
@@ -39,6 +39,8 @@ const Login: React.FC = () => {
   const { setActivePlan } = useContext(ContextGlobal);
 
 
+
+
   const handleLogin: SubmitHandler<LoginFormValues> = async (data) => {
     try {
       setLoading(true)
@@ -54,7 +56,7 @@ const Login: React.FC = () => {
       setUser({ ...response.data, ...infoUser.data })
       setActivePlan(infoUser?.data?.has_plan)
       setLoading(false)
-      navigate("/painel", {state: {priceId}} )
+      navigate("/painel", { state: { priceId } })
     } catch (error) {
       console.error('Erro ao fazer login:', error);
       setLoading(false)
@@ -63,7 +65,7 @@ const Login: React.FC = () => {
   };
 
   return (
-    <html className="h-full gradient-background">      
+    <html className="h-full gradient-background">
 
       <body className="dark:bg-slate-900 gradient-background flex h-full items-center py-16 min-h-screen">
         <main className="w-full max-w-md mx-auto p-6">
@@ -76,6 +78,7 @@ const Login: React.FC = () => {
                 <p className="mt-2 text-sm text-gray-600 dark:text-gray-400">
                   Bem vindo ao fonotherapp
                 </p>
+                <Link to={"/"} >Voltar</Link>
               </div>
 
               <div className="mt-5">
@@ -124,7 +127,7 @@ const Login: React.FC = () => {
                     </div>
 
                     <button type="submit" className="w-full py-3 px-4 inline-flex justify-center items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent bg-cyan-600 text-white hover:bg-cyan-700 disabled:opacity-50 disabled:pointer-events-none dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600">
-                      {loading ? <Spin style={{color:"white"}} indicator={<LoadingOutlined spin />} size="default" />
+                      {loading ? <Spin style={{ color: "white" }} indicator={<LoadingOutlined spin />} size="default" />
                         : 'Entrar'}
                     </button>
                   </div>

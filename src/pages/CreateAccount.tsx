@@ -63,6 +63,8 @@ const CreateAccount: React.FC = () => {
                 <p className="mt-2 text-sm text-gray-600 dark:text-gray-400">
                   Bem vindo ao fonotherapp
                 </p>
+                <Link to={"/"} >Voltar</Link>
+
               </div>
 
               <div className="mt-5">

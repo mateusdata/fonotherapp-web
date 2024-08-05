@@ -18,6 +18,8 @@ export interface FormatUser {
     nick_name: string;
     token: string;
     usu_id: number;
+    activePlan: boolean
+
   }
   
 export const ContextAuth = createContext<FormatContext>({} as FormatContext)

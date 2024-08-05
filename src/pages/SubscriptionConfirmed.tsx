@@ -1,14 +1,15 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import { Button } from 'antd';
-import { CheckCircleOutlined } from '@ant-design/icons';
+import { CheckCircleOutlined, NotificationOutlined } from '@ant-design/icons';
 import { useNavigate } from 'react-router-dom';
 import { ContextAuth } from '../context/AuthProvider';
 import PublicLayout from '../templates/PublicLayout';
 import { api } from '../axiosInstance/axiosInstance';
+import { ThermometerSnowflake } from 'lucide-react';
 ///Fonotherapp
 const SubscriptionConfirmed = () => {
     const { user } = useContext(ContextAuth);
-    const isPlan = user?.nick_name ? true : false;
+    const isPlan = user?.activePlan ? true : false;
     const navigate = useNavigate();
 
     const handleChoosePlan = () => {
@@ -35,12 +36,12 @@ const SubscriptionConfirmed = () => {
 
                     {isPlan ? (
                         <div className="text-center mb-6">
-                            <CheckCircleOutlined style={{color:"green", fontSize: '46px'}} />
+                            <CheckCircleOutlined style={{ color: "green", fontSize: '46px' }} />
 
                             <p className="text-sm text-gray-600 mt-2">
                                 Você pode baixar o aplicativo Fonotherapp no link{' '}
-                                <a href="https://expo.dev/artifacts/eas/orchbRQN5xt8qRF5eibMmR.apk" className="text-cyan-600 hover:underline">
-                                    fonotherapp.vercel.app/downloadapp
+                                <a href="https://www.fonotherapp.com.br/download" className="text-cyan-600 hover:underline">
+                                https://www.fonotherapp.com.br/download
                                 </a>
                             </p>
                             <Button type="primary" className="mt-4" onClick={managePlans}>
@@ -48,9 +49,12 @@ const SubscriptionConfirmed = () => {
                             </Button>
                         </div>
                     ) : (
-                        <div className="text-center mb-6">
+                        <div className="text-center flex flex-col justify-center  items-center  mb-6">
+                            <NotificationOutlined style={{ color: "red", fontSize: '46px' }} />
+
                             <p className="text-lg text-gray-700">
-                              Seu planp está plano ativo.
+                                Você ainda não tem um plano
+
                             </p>
                             <Button type="primary" className="mt-4" onClick={handleChoosePlan}>
                                 Escolher um Plano

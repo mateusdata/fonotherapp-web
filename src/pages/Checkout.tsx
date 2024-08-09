@@ -20,6 +20,7 @@ const Checkout = () => {
     useEffect(() => {
         const fetchPublishableKey = async () => {
             const response = await api.get('/config');
+            console.log("Conf " ,  response.data)
             return response.data.publishable_key;
         };
 
@@ -28,7 +29,7 @@ const Checkout = () => {
             const stripe = await loadStripe(publishableKey);
             setStripePromise(() => Promise.resolve(stripe));
         };
-
+        
         initializeStripe();
     }, []);
 

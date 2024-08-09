@@ -20,6 +20,8 @@ const Dashboard = () => {
   }, []);
 
   const checkout = (priceId: string) => {
+    console.log("Preço id ", priceId);
+    
     if (user?.nick_name) {
       return navigate("/checkout", { state: { email: user?.email, priceId } });
     }

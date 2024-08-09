@@ -56,6 +56,10 @@ const Login: React.FC = () => {
       setUser({ ...response.data, ...infoUser.data })
       setActivePlan(infoUser?.data?.has_plan)
       setLoading(false)
+      if(infoUser?.data?.has_plan){
+        navigate("/meuplano", { state: { priceId } })
+        return
+      }
       navigate("/painel", { state: { priceId } })
     } catch (error) {
       console.error('Erro ao fazer login:', error);

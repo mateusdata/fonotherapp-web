@@ -18,7 +18,7 @@ export interface FormatUser {
     nick_name: string;
     token: string;
     usu_id: number;
-    activePlan: boolean
+    has_plan: boolean
 
   }
   
@@ -50,6 +50,7 @@ const AuthProvider: React.FC<PropsWithChildren> = ({ children }) => {
 
     return (
         <ContextAuth.Provider value={{ user, setUser, authenticated: !!user, loading, setLoading, currentPage, setCurrentPage, logout }}>
+            {false && <pre>{JSON.stringify(user, null, 2)}</pre>}
             {children}
         </ContextAuth.Provider>
     )

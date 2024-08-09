@@ -30,7 +30,7 @@ function DropDownUser() {
         {
             label: (
                 <Link className='' to={"/painel"}>
-                    Minha Conta
+                    Planos
                 </Link>
             ),
             key: '1',

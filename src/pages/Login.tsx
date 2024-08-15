@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useContext, useState } from 'react';
 import './style.css';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useForm, SubmitHandler } from 'react-hook-form';
@@ -6,11 +6,10 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
 import { api } from '../axiosInstance/axiosInstance';
 import { ContextAuth } from '../context/AuthProvider';
-import { ClipLoader } from 'react-spinners';
 import { ContextGlobal } from '../context/GlobalProvider';
 import { Spin } from 'antd';
 import { LoadingOutlined } from '@ant-design/icons';
-import { useUserStore } from '../context/Zcontext';
+//import { useUserStore } from '../context/Zcontext';
 
 const schema = z.object({
   email: z.string().email('Por favor, insira um email válido').min(5),
@@ -23,7 +22,7 @@ type LoginFormValues = {
 
 const Login: React.FC = () => {
   const navigate = useNavigate()
-  const { users, setUsers } = useUserStore();
+  //const { users, setUsers } = useUserStore();
   const { priceId } = useLocation()?.state || {};
 
   const [loading, setLoading] = useState(false);

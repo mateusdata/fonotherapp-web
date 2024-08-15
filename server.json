@@ -1,0 +1,22 @@
+{
+  "produtos": [
+    {
+      "id": "cefd",
+      "product": "Gaming Console",
+      "price": 1428.84,
+      "vendor": "Gizmo Haven"
+    },
+    {
+      "id": "e99e",
+      "product": "Gaming Console",
+      "price": 1428.84,
+      "vendor": "Gizmo Haven"
+    },
+    {
+      "id": "1039",
+      "product": "Gaming Console",
+      "price": 1428.84,
+      "vendor": "Gizmo Haven"
+    }
+  ]
+}

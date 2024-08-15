@@ -6,7 +6,6 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
 import {api} from '../axiosInstance/axiosInstance';
 import { ContextAuth } from '../context/AuthProvider';
-import { ClipLoader } from 'react-spinners';
 import { Spin } from 'antd';
 import { LoadingOutlined } from '@ant-design/icons';
 
@@ -27,7 +26,7 @@ const CreateAccount: React.FC = () => {
     resolver: zodResolver(schema),
   });
 
-  const { setUser, user } = useContext(ContextAuth);
+  const { setUser } = useContext(ContextAuth);
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate()
 

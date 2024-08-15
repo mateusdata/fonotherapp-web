@@ -5,8 +5,7 @@ import ApresentationManagers from '../components/ApresentationManagers'
 import { Link } from 'react-router-dom'
 import PublicLayout from '../templates/PublicLayout'
 import { ContextAuth } from '../context/AuthProvider'
-import { openUrl } from '../utils/helpPlan'
-import { Tooltip } from 'antd'
+
 import OpenWhatsApp from '../components/OpenWhatsApp'
 
 const Home = () => {

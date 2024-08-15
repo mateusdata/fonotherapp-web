@@ -1,7 +1,7 @@
 import React from 'react'
 import ImageFlavia from "../../src/assets/flavia.jpeg"
-import ImageAmanda from "../../src/assets/amanda.png"
-import ImageJesica from "../../src/assets/jesica.png"
+//import ImageAmanda from "../../src/assets/amanda.png"
+//import ImageJesica from "../../src/assets/jesica.png"
 import gif from "../../src/assets/cara_de_assustada.gif"
 
 export default function ApresentationDoctor() {

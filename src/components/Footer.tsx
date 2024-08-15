@@ -1,5 +1,3 @@
-import React, { useContext } from 'react'
-import { ContextAuth } from '../context/AuthProvider'
 
 const Footer = () => {
     return (

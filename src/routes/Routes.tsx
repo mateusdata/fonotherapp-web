@@ -1,7 +1,5 @@
-import { useContext } from "react";
-import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
-import { Spin } from 'antd';
-import AuthProvider, { ContextAuth } from "../context/AuthProvider";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import AuthProvider from "../context/AuthProvider";
 import Home from "../pages/Home";
 import Login from "../pages/Login";
 import HowItWorks from "../pages/HowItWorks";
@@ -14,28 +12,11 @@ import SubscriptionConfirmed from "../pages/SubscriptionConfirmed";
 import GlobalProvider from "../context/GlobalProvider";
 import PrivacyPolicy from "../pages/PrivacyPolicy";
 import TermsOfService from "../pages/TermsOfService";
+import { Private } from "../utils/Private";
 
 const AllRoutes = () => {
 
-    const DownloadAppRedirect = () => {
-        window.location.href = 'https://expo.dev/artifacts/eas/orchbRQN5xt8qRF5eibMmR.apk';
-        return null;
-    };
-
-    function Private({ children }: any) {
-        const { loading, authenticated } = useContext(ContextAuth);
-        if (loading) {
-            return (
-                <div className="flex items-center justify-center h-screen">
-                    <Spin size="large" delay={0} />
-                </div>
-            )
-        }
-        if (!authenticated) {
-            return <Navigate to={"/login"} />
-        }
-        return children
-    }
+  
 
 
     return (
@@ -56,7 +37,6 @@ const AllRoutes = () => {
                         <Route path="/painel" element={<Private> <Dashboard /> </Private>} />
                         <Route path="/checkout" element={<Private><Checkout /></Private>} />
                         <Route path="/meuplano" element={<Private><SubscriptionConfirmed /></Private>} />
-                        <Route path="/downloadapp" element={<DownloadAppRedirect />} />
 
                         {/*Rotas termos e serviços do fonotherapp*/}
 

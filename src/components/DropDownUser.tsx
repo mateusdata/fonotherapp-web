@@ -38,7 +38,7 @@ function DropDownUser() {
         {
             label: (
                 <Link className='' to={"/meuplano"}>
-                    Minha plano
+                    Meu plano
                 </Link>
             ),
             key: '2',

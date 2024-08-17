@@ -52,25 +52,25 @@ export default function HeaderPublic() {
             <nav className="max-w-[85rem] w-full mx-auto px-4 md:px-6 lg:px-8" aria-label="Global">
                 <div className="relative md:flex md:items-center md:justify-between">
                     <div className="flex items-center justify-between">
+                        <Link to={'/'} aria-current="page">
+                            <div className="flex gap-1">
+                                <div className="flex-none  w-7" >
+                                    <svg className="w-28 h-auto" width="116" height="32" viewBox="0 0 116 32" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
 
-                        <div className="flex gap-1">
-                            <div className="flex-none  w-7" >
-                                <svg className="w-28 h-auto" width="116" height="32" viewBox="0 0 116 32" fill="none"
-                                    xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M1 28.9786V15.9786C1 9.35116 6.37258 3.97858 13 3.97858C19.6274 3.97858 25 9.35116 25 15.9786C25 22.606 19.6274 27.9786 13 27.9786H12"
+                                            className="stroke-gray-50 dark:stroke-white" stroke="currentColor" stroke-width="2" />
+                                        <path
+                                            d="M5 28.9786V16.1386C5 11.6319 8.58172 7.97858 13 7.97858C17.4183 7.97858 21 11.6319 21 16.1386C21 20.6452 17.4183 24.2986 13 24.2986H12"
+                                            className="stroke-gray-50 dark:stroke-white" stroke="currentColor" stroke-width="2" />
+                                        <circle cx="13" cy="16" r="5" fill="currentColor" className="fill-gray-50 dark:fill-white" />
+                                    </svg>
+                                </div>
 
-                                    <path
-                                        d="M1 28.9786V15.9786C1 9.35116 6.37258 3.97858 13 3.97858C19.6274 3.97858 25 9.35116 25 15.9786C25 22.606 19.6274 27.9786 13 27.9786H12"
-                                        className="stroke-gray-50 dark:stroke-white" stroke="currentColor" stroke-width="2" />
-                                    <path
-                                        d="M5 28.9786V16.1386C5 11.6319 8.58172 7.97858 13 7.97858C17.4183 7.97858 21 11.6319 21 16.1386C21 20.6452 17.4183 24.2986 13 24.2986H12"
-                                        className="stroke-gray-50 dark:stroke-white" stroke="currentColor" stroke-width="2" />
-                                    <circle cx="13" cy="16" r="5" fill="currentColor" className="fill-gray-50 dark:fill-white" />
-                                </svg>
+                                <span className="text-white font-medium text-lg">Fonotherapp</span>
                             </div>
-
-                            <span className="text-white font-medium text-lg">Fonotherapp</span>
-                        </div>
-
+                        </Link>
 
                         <div className="md:hidden">
                             <button onClick={handleToggleMenu} type="button"

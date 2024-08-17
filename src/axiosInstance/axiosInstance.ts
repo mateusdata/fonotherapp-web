@@ -1,8 +1,8 @@
 import axios from "axios";
 
 const api = axios.create({
-    //baseURL: 'https://api.fonotherapp.com.br',
-    baseURL:"https://ideal-space-trout-q4v746r5xgrc4xv-3000.app.github.dev",
+    baseURL: 'https://api.fonotherapp.com.br',
+    //baseURL:"https://ideal-space-trout-q4v746r5xgrc4xv-3000.app.github.dev",
     timeout: 10000,
     headers:{
         "ngrok-skip-browser-warning": "69420",

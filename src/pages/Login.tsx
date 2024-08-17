@@ -46,7 +46,7 @@ const Login: React.FC = () => {
       const response = await api.post('/login-web', data);
       localStorage.setItem('usuario', JSON.stringify(response.data));
 
-      const infoUser = await api.get(`/user/${response.data.usu_id}`,);
+      const infoUser = await api.get(`/my-user`);
       console.log(({ ...response.data, ...infoUser.data }))
       localStorage.setItem('usuario', JSON.stringify({ ...response.data, ...infoUser.data }));
 
@@ -55,6 +55,7 @@ const Login: React.FC = () => {
       setUser({ ...response.data, ...infoUser.data })
       setActivePlan(infoUser?.data?.has_plan)
       setLoading(false)
+
       if(infoUser?.data?.has_plan){
         navigate("/meuplano", { state: { priceId } })
         return

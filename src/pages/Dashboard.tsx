@@ -69,7 +69,7 @@ const Dashboard = () => {
                 <p className="mb-3"><span className="inline-flex items-center gap-1.5 py-1.5 px-3 rounded-lg text-xs uppercase font-semibold bg-blue-100 text-blue-800 dark:bg-blue-600 dark:text-white">Most popular</span></p>
                 <h4 className="font-medium text-lg text-gray-800 dark:text-gray-200">{plan.product.name}</h4>
                 <span className="mt-5 font-bold text-5xl text-gray-800 dark:text-gray-200 gap-x-3">
-                  <span className="font-bold text-2xl -me-2">R$</span>
+                  <span className="font-bold text-2xl">R$</span>
                   {plan.unit_amount / 100}
                 </span>
                 <p className="mt-2 text-sm text-gray-500">{plan?.product?.description}</p>

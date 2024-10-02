@@ -1,11 +1,11 @@
 import React, { PropsWithChildren } from 'react'
 import HeaderPublic from '../components/HeaderPublic'
 import Footer from '../components/Footer'
-import './style.css'; // Importe o arquivo de estilo CSS
+import './style.css'; 
 
 const PublicLayout: React.FC<PropsWithChildren> = ({ children }) => {
     return (
-        <div className="gradient-background">
+        <div className="">
         <HeaderPublic />
         <div className='md:px-24'>
             {children}
